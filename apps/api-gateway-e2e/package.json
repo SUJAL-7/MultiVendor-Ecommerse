@@ -1,0 +1,26 @@
+{
+  "name": "@multi-vendor-ecommerse/api-gateway-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@multi-vendor-ecommerse/api-gateway"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/api-gateway-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@multi-vendor-ecommerse/api-gateway:build",
+          "@multi-vendor-ecommerse/api-gateway:serve"
+        ]
+      }
+    }
+  }
+}
